@@ -1,0 +1,20 @@
+.switch-event-wrap {
+  @apply flex rounded-3xl overflow-hidden bg-gray-200;
+
+  .switch-event-btn {
+    @apply px-6 rounded-3xl relative bg-transparent z-0 font-semibold text-gray-500;
+    transition: all 200ms ease-in;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    
+    &.btn-2 {
+      margin-left: -14px;
+    }
+
+    &.active {
+      @apply bg-primaryColor text-white z-10;
+  
+    }
+  }
+}
+

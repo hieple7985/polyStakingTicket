@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --max-width: 428px;
+  --transition: all 400ms ease;
+}
+
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+*:hover, *:focus {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+section {
+  @apply w-full;
+}
+
+svg {
+  overflow: visible !important;
+}
+
+.wrap {
+  @apply border border-solid border-gray-200;
+}
+
+.container {
+  @apply min-h-screen w-11/12 mx-auto flex flex-col items-center;
+}
+
+.fixed {
+  max-width: calc(var(--max-width) - 2px);
+}
+
+.border-x-only {
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+
+.border-y-only {
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #D9D9D9;
+}
+
+iframe {
+  display: none;
+}
+
+.ticket-border {
+  @apply border-2 border-solid border-gray-200 rounded-3xl overflow-hidden;
+  transition: var(--transition);
+  .overview-title {
+    transition: var(--transition);
+  }
+  &:hover {
+    @apply border-primaryColor bg-gray-50;
+    .overview-title {
+      @apply text-primaryColor;
+    }
+  }
+}
+
+.fixed-comp {
+  @apply w-full flex justify-center z-40;
+  background-color: #FFF;
+}
+
+.sub-footer {
+  @apply fixed bottom-0 py-6 border-t border-solid 
+  border-gray-300 rounded-t-3xl;
+}
+
+.modal-wrap {
+  @apply absolute inset-0 flex flex-col z-50;
+  background-color: rgba(0, 0, 0, 0.6);
+  .modal-bg {
+    @apply flex-1 bg-transparent;
+  }
+
+  .modal {
+    @apply fixed bottom-0 border-t
+    border-solid border-gray-300 bg-white opacity-100
+    rounded-t-3xl flex flex-col items-center z-50;
+    animation: modalSlideUp .5s ease;
+
+    .modal-exit-btn {
+      @apply absolute rounded-full bg-white;
+      top: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      button {
+        @apply rounded-full p-4 m-4 opacity-80 hover:opacity-100 bg-subBgColor text-primaryColor;
+      }
+    }
+  }
+}
+
+.footer-full-w-btn {
+  button {
+    @apply w-full text-xl text-center py-4 rounded-3xl 
+      font-semibold border-2 border-solid;
+  } 
+}
+
+.primary-btn {
+  color: #fff;
+  background-color: theme('colors.primaryColor');
+  border-color: theme('colors.primaryColor');
+  @apply hover:opacity-80;
+  transition: var(--transition);
+}
+
+.secondary-btn {
+  color: theme('colors.primaryColor');
+  background-color: #fff;
+  border-color: theme('colors.primaryColor');
+  @apply hover:opacity-80;
+  transition: var(--transition);
+}
+
+
+.input {
+  @apply flex items-center border border-solid rounded-3xl w-full overflow-hidden
+  border-whiteSmoke bg-inputBgColor opacity-80 hover:opacity-100
+  focus-within:border-primaryColor focus-within:opacity-100;
+
+  &.active {
+    @apply opacity-100;
+
+    p {
+      @apply text-primaryColor;
+    }
+  }
+
+  input {
+    @apply py-2 bg-transparent flex-1 min-w-0 pl-6;
+  }
+
+  p {
+    @apply text-gray-400 font-semibold ml-3 pr-4;
+  }
+}
+
+.input-read-only {
+  @apply flex border border-solid rounded-3xl w-full pl-6 pr-6 mt-2
+  border-whiteSmoke bg-inputBgColor select-none;
+}
+
+.disable-button {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5 !important;
+}
+
+.icon-primary-color {
+    @apply block rounded-full text-2xl text-primaryColor;
+}
+
+.copy-notif {
+  animation-name: fadeOut;
+  animation-duration: 2.8s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    height: 0;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  20% {
+    height: 15px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    opacity: 1;
+  }
+
+  60% {
+    height: 15px;
+    opacity: 1;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  100% {
+    height: 0;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}

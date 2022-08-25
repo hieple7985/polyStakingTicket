@@ -1,0 +1,7 @@
+.welcome-bg {
+  background-image: url('../../assets/images/welcome-bg.png');
+}
+
+.welcome-title {
+  text-shadow: -0.5px -0.8px 1.2px #FFF, 0.5px -0.8px 1.2px #FFF, -0.5px 0.5px 1.2px #FFF, 0.5px 0.5px 1.2px #FFF;
+}

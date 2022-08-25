@@ -1,0 +1,21 @@
+.event-info-modal-bg {
+  @apply flex-1;
+}
+
+.event-info-modal-content {
+  @apply w-full rounded-t-3xl bg-white relative mt-16;
+  animation: modalSlideUp .5s ease;
+
+  .event-info-modal-exit {
+    @apply absolute rounded-full bg-white z-30;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    button {
+      @apply rounded-full p-4 m-4 opacity-80 
+      hover:opacity-100 bg-subBgColor text-primaryColor;
+    }
+  }
+}
+

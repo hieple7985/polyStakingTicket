@@ -1,0 +1,14 @@
+
+.dis-btn {
+  button {
+    @apply flex-1 py-2 rounded-3xl text-lg font-semibold opacity-80 border-2 border-solid hover:opacity-100 focus:opacity-100;
+
+    &.primary-btn {
+      @apply bg-primaryColor text-white border-primaryColor;
+    }
+
+    &.secondary-btn {
+      @apply  border-primaryColor text-primaryColor bg-white;
+    }
+  }
+}

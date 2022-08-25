@@ -1,0 +1,37 @@
+.stat-null {
+  @apply mt-24 text-center text-3xl w-3/4 mx-auto text-gray-400;
+}
+
+.issued-event-details {
+  @apply flex items-start mt-2;
+  i {
+    @apply mt-1 mr-2 ;
+  }
+  p {
+    @apply text-sm font-semibold;
+  }
+}
+
+.sold-stat {
+  h6 {
+    @apply font-bold text-xl;
+  }
+  
+  .sold-stat-wrap {
+    @apply mt-4;
+
+    .sold-stat-details {
+      @apply flex justify-between mt-1;
+      
+      p {
+        @apply font-semibold;
+
+        span {
+          @apply text-primaryColor pl-3 text-lg;
+        }
+      }
+    }
+  }
+
+  
+}

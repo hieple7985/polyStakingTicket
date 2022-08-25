@@ -1,0 +1,40 @@
+.footer-btn {
+  @apply flex flex-col items-center;
+
+  i {
+    @apply  block px-4 py-3 rounded-lg text-lg;
+    color: theme('colors.primaryColor');
+    background-color: theme('colors.subBgColor');
+    
+  }
+  
+  p {
+    user-select: none;
+    color: theme('colors.lighterTextColor');
+    text-shadow: -.25px -.25px 0 transparent, 
+                .25px .25px transparent;
+  }
+
+  &.active, &:hover, &:focus {
+    i {
+      color: #fff;
+      background-color: theme('colors.primaryColor');
+    }
+    .footer-btn__event{
+      filter: brightness(500%);
+      -webkit-filter: brightness(500%);
+    }
+    p {
+      color: theme('colors.primaryColor');
+      text-shadow: -.25px -.25px 0 theme('colors.primaryColor'), 
+                .25px .25px theme('colors.primaryColor');
+    }
+  }
+
+  .footer-btn__event{
+    width: 18px;
+    height: 18px;
+  }
+
+}
+

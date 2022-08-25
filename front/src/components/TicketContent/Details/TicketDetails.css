@@ -1,0 +1,17 @@
+.detail-item {
+  @apply flex mt-8 w-full overflow-hidden;
+  .detail-icon {
+    i {
+      @apply block p-4 rounded-full text-2xl bg-subBgColor text-primaryColor;
+    }
+  }
+  .detail-info {
+    @apply flex flex-col self-center ml-6 flex-1;
+    h6 {
+      @apply font-bold mb-1;
+    }
+    p {
+      @apply leading-5;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+.cf-event-info-item {
+  @apply flex justify-between items-center mt-2 font-semibold text-sm;
+  div {
+    @apply flex items-center text-primaryColor;
+  }
+}

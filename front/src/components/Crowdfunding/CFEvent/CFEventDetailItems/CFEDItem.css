@@ -1,0 +1,20 @@
+.cfed-detail-title {
+  @apply text-2xl font-semibold;
+}
+
+.cfed-detail-item {
+  @apply w-full flex justify-between items-start mt-4;
+
+  span {
+    @apply flex flex-col items-end;
+  }
+
+  h6, p {
+    @apply font-semibold;
+  }
+
+  small {
+    @apply text-base
+  }
+}
+

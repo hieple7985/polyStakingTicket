@@ -1,0 +1,1 @@
+export const filters = ["All Tickets", "Sold Tickets", "Remaining Tickets"]

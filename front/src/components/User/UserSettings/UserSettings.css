@@ -1,0 +1,41 @@
+.user-setting-items {
+  @apply flex justify-between py-4 border-t border-solid border-gray-300 cursor-pointer opacity-80 hover:opacity-100;
+  &.primary {
+    @apply hover:text-primaryColor;
+  }
+  &.exit {
+    @apply hover:text-red-600;
+  }
+  div {
+    @apply flex items-center;
+
+    p {
+      @apply ml-4 font-semibold;
+    }
+
+    .primary-item-icon {
+      @apply p-4 rounded-full bg-subBgColor text-primaryColor;
+    }
+
+    .exit-icon {
+      @apply p-4 rounded-full;
+      background-color: #FFE9ED;
+      color: theme("colors.red.600");
+    }
+  }
+
+  .user-setting-next-btn {
+    @apply opacity-80 hover:opacity-100;
+    i {
+      @apply text-3xl;
+    }
+  }
+}
+
+.wallet-setting-section {
+  @apply border-t border-solid border-gray-300 mt-6;
+  
+  h6 {
+    @apply mt-6 font-semibold text-lg;
+  }
+}

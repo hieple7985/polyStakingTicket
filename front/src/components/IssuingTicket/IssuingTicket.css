@@ -1,0 +1,118 @@
+.issuing-step-header {
+  @apply  flex justify-between items-center mx-4 mb-6 pb-6;
+
+  .issuing-step-header-item {
+    @apply flex flex-col items-center opacity-40 cursor-pointer relative;
+    p {
+      @apply rounded-full bg-primaryColor text-white font-semibold text-sm w-7 h-7 text-center leading-7;
+    }
+    small {
+      @apply font-semibold text-primaryColor mt-1 absolute top-7;
+    }
+  }
+  .issuing-step-header-line {
+    @apply border-t-2 border-dashed border-primaryColor flex-1 opacity-40;
+  }
+
+  .active {
+    @apply opacity-100;
+  }
+}
+
+.issuing-label {
+  @apply font-semibold;
+}
+
+.issuing-input {
+  @apply flex items-center border border-solid rounded-3xl w-full opacity-80
+  border-whiteSmoke bg-inputBgColor overflow-hidden hover:opacity-100
+  focus-within:border-primaryColor focus-within:opacity-100;
+
+  &.active {
+    @apply opacity-100;
+
+    p {
+      @apply text-primaryColor;
+    }
+  }
+
+  &.alert {
+    @apply border-red-600 bg-red-100;
+  }
+
+  input {
+    @apply py-2 bg-transparent flex-1 min-w-0 px-6;
+  }
+
+  p {
+    @apply text-gray-400 font-semibold mr-6;
+  }
+}
+
+.issuing-input-btn {
+  @apply flex justify-between items-center border border-solid rounded-3xl w-full px-6 py-2 
+  border-whiteSmoke bg-inputBgColor text-gray-400 focus:border-primaryColor
+  opacity-80 hover:opacity-100 focus:opacity-100;
+  
+  &.alert {
+    @apply border-red-600 bg-red-100;
+  }
+
+  &.active {
+    @apply text-black opacity-100;
+    
+    i {
+      @apply text-primaryColor;
+    }
+  }
+
+  i {
+    @apply text-lg;
+  }
+}
+
+.issuing-cover-img {
+  @apply bg-inputBgColor border-2 border-dashed border-gray-200 rounded-2xl 
+  mt-2 h-52 flex flex-col justify-center items-center text-gray-400 cursor-pointer 
+  opacity-80 hover:opacity-100 focus:opacity-100;
+
+  &.active {
+    @apply opacity-100 border-none;
+  }
+
+  &.alert {
+    @apply border-red-600 bg-red-100;
+  }
+}
+
+.add-approval {
+  @apply text-primaryColor ;
+  &.enabled {
+    @apply cursor-pointer opacity-80 hover:opacity-100;
+  }
+  &.disabled {
+    @apply opacity-40 cursor-default;
+  }
+}
+
+.MuiPickersToolbar-penIconButton {
+  @apply hidden !important;
+}
+
+.modal-complete {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.wrap-event-list{
+  max-height: 70vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.fill-primary-color{
+  fill: theme('colors.primaryColor')
+}

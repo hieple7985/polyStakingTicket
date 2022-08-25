@@ -1,0 +1,14 @@
+.statistic-header {
+  button {
+    @apply font-semibold border-b-2 border-solid border-transparent;
+    font-size: 13px;
+
+    span {
+      @apply ml-1;
+    }
+
+    &.active, &:hover {
+      @apply text-primaryColor  border-primaryColor;
+    }
+  }
+}

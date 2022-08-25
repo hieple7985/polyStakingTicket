@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+build:
+  image: node:14.18.3
+  stage: build
+  script:
+    - CI=false npm install
+    - CI=false npm run build
+  only:
+    - main
+  artifacts:
+    paths:
+      - build/
+pages:
+  image: alpine:latest
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none        # Do not clone git repo
+  script:
+    - cp build/index.html build/404.html
+    - mv build public
+  only:
+    - main
+  artifacts:
+    paths:
+      - public

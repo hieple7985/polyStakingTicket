@@ -1,0 +1,45 @@
+.cf-header-btn-wrap {
+  min-height: 132px;
+}
+
+.cf-header-btn {
+  @apply w-full rounded-3xl border-2 border-solid border-transparent cursor-pointer;
+  transition: var(--transition);
+  button {
+    @apply w-full text-lg text-center py-3 rounded-3xl 
+      font-semibold border-2 border-solid leading-6 px-2;
+      transition: var(--transition);
+  }
+  p {
+    @apply cursor-pointer leading-6;
+    transition: var(--transition);
+  }
+  &.first {
+    &:hover {
+      @apply rounded-3xl bg-primaryColor ;
+      & button {
+        @apply opacity-100 font-bold;
+      }
+      & p {
+        @apply text-white font-semibold;
+        margin-top: -12px;
+      }
+    }
+  }
+
+  &.second {
+    .secondary-btn {
+      @apply bg-gray-50;
+    }
+    &:hover {
+      @apply border-primaryColor bg-gray-50;
+      & button {
+        @apply opacity-100 border-transparent font-bold;
+      }
+      & p {
+        @apply text-primaryColor font-semibold;
+        margin-top: -12px;
+      }
+    }
+  }
+}
