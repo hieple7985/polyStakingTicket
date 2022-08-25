@@ -47,6 +47,8 @@ POLYGON: A decentralized SocialFI network for self-event crowd funding
 
 ### TechStack
 
+- Remix
+- Solidity
 - ReactJS
 - QR-Code Scanner
 - IPFS
@@ -54,8 +56,9 @@ POLYGON: A decentralized SocialFI network for self-event crowd funding
 - Web3
 - MetaMask
 - Polygon Hermez
+- GitLab Static Page
 
-### E. Project Demo Link
+### Project Demo
 
-- Demo: https://pst.law3.app/
+- Link: https://pst.law3.app/
 - Credential: admin / 9rR9fT29tvPZ

@@ -1,3 +1,3 @@
 # Smart Contract
 
-Update Soon
+- Link: https://docs.polygon.technology/docs/develop/remix/
