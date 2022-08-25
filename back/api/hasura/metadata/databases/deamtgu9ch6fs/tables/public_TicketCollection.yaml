@@ -1,0 +1,10 @@
+table:
+  schema: public
+  name: TicketCollection
+object_relationships:
+  - name: TicketToken
+    using:
+      foreign_key_constraint_on: tiket_token_id
+  - name: UserNonce
+    using:
+      foreign_key_constraint_on: owner

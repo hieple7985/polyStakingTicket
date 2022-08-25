@@ -1,0 +1,10 @@
+- name: close_cf
+  webhook: http://host.docker.internal:3000/eventcf/close_eventcf
+  schedule: '*/5 * * * *'
+  include_in_metadata: true
+  payload: {}
+- name: close_event
+  webhook: http://host.docker.internal:3000/event/close
+  schedule: '*/5 * * * *'
+  include_in_metadata: true
+  payload: {}

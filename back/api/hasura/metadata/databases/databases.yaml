@@ -1,0 +1,9 @@
+- name: deamtgu9ch6fs
+  kind: postgres
+  configuration:
+    connection_info:
+      use_prepared_statements: false
+      database_url:
+        from_env: PG_DATABASE_URL
+      isolation_level: read-committed
+  tables: "!include deamtgu9ch6fs/tables/tables.yaml"

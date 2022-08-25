@@ -1,0 +1,487 @@
+actions:
+  - name: JoinCF
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/eventcf/joincf'
+  - name: approveTicket
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/ticket/approve'
+  - name: createBuyTicket
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/ticket/createbuy'
+  - name: createEvent
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/event/create'
+  - name: createEventcf
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/eventcf/create'
+  - name: createExchange
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/ticket/create_exchange'
+  - name: createQrCode
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/qr/create'
+  - name: createSellTicket
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/ticket/createsell'
+  - name: createTicket
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/ticket/create'
+  - name: createWallet
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/user/create'
+  - name: exchangeCurrency
+    definition:
+      kind: synchronous
+      handler: '{{WEB_HOOK}}/currency/exchange'
+custom_types:
+  enums:
+    - name: InsertTransactionDerivedEventcatogoryConstraint
+      values:
+        - value: EventCatogory_pkey
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+    - name: InsertTransactionDerivedEventcatogoryUpdateColumn
+      values:
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: name
+          is_deprecated: null
+          description: column name
+        - value: type
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedEventcatogoryitemConstraint
+      values:
+        - value: EventCatogoryItem_pkey
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+    - name: InsertTransactionDerivedEventcatogoryitemUpdateColumn
+      values:
+        - value: catogory_id
+          is_deprecated: null
+          description: column name
+        - value: event_id
+          is_deprecated: null
+          description: column name
+        - value: id
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedTickettokensConstraint
+      values:
+        - value: TicketTokens_pkey
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+    - name: InsertTransactionDerivedTickettokensUpdateColumn
+      values:
+        - value: approver
+          is_deprecated: null
+          description: column name
+        - value: class_ticket
+          is_deprecated: null
+          description: column name
+        - value: event
+          is_deprecated: null
+          description: column name
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: image_link
+          is_deprecated: null
+          description: column name
+        - value: owner_address
+          is_deprecated: null
+          description: column name
+        - value: price
+          is_deprecated: null
+          description: column name
+        - value: qrcode
+          is_deprecated: null
+          description: column name
+        - value: status
+          is_deprecated: null
+          description: column name
+        - value: ticket_type
+          is_deprecated: null
+          description: column name
+        - value: usable
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedEventConstraint
+      values:
+        - value: Event_pkey
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+    - name: InsertTransactionDerivedEventUpdateColumn
+      values:
+        - value: end_date
+          is_deprecated: null
+          description: column name
+        - value: eventcf
+          is_deprecated: null
+          description: column name
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: image
+          is_deprecated: null
+          description: column name
+        - value: localtion
+          is_deprecated: null
+          description: column name
+        - value: name
+          is_deprecated: null
+          description: column name
+        - value: owner
+          is_deprecated: null
+          description: column name
+        - value: start_date
+          is_deprecated: null
+          description: column name
+        - value: status
+          is_deprecated: null
+          description: column name
+        - value: ticket_issued
+          is_deprecated: null
+          description: column name
+        - value: ticket_sold
+          is_deprecated: null
+          description: column name
+        - value: total_proceed
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedTicketaccesstokenConstraint
+      values:
+        - value: TicketAccessToken_pkey
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+        - value: TicketAccessToken_ticket_token_id_key
+          is_deprecated: null
+          description: unique or primary key constraint on columns "ticket_token_id"
+        - value: TicketAccessToken_token_key
+          is_deprecated: null
+          description: unique or primary key constraint on columns "token"
+    - name: InsertTransactionDerivedTicketaccesstokenUpdateColumn
+      values:
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: owner_address
+          is_deprecated: null
+          description: column name
+        - value: ticket_token_id
+          is_deprecated: null
+          description: column name
+        - value: token
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedTransactionConstraint
+      values:
+        - value: Transaction_pkey
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+    - name: InsertTransactionDerivedTransactionUpdateColumn
+      values:
+        - value: create_at
+          is_deprecated: null
+          description: column name
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: status
+          is_deprecated: null
+          description: column name
+        - value: ticket_id
+          is_deprecated: null
+          description: column name
+        - value: type
+          is_deprecated: null
+          description: column name
+        - value: user_id
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedUseraccesstokenConstraint
+      values:
+        - value: UserAccessToken_pkey
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+        - value: UserAccessToken_token_key
+          is_deprecated: null
+          description: unique or primary key constraint on columns "token"
+    - name: InsertTransactionDerivedUseraccesstokenUpdateColumn
+      values:
+        - value: expires_at
+          is_deprecated: null
+          description: column name
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: token
+          is_deprecated: null
+          description: column name
+        - value: user_id
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedUsernonceConstraint
+      values:
+        - value: UserNonce_address_key
+          is_deprecated: null
+          description: unique or primary key constraint on columns "address_id"
+        - value: UserNonce_pkey
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+    - name: InsertTransactionDerivedUsernonceUpdateColumn
+      values:
+        - value: address_id
+          is_deprecated: null
+          description: column name
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: money_total_ticket_mul
+          is_deprecated: null
+          description: column name
+        - value: money_total_ticket_ot
+          is_deprecated: null
+          description: column name
+        - value: ticket_bought
+          is_deprecated: null
+          description: column name
+        - value: ticket_issued
+          is_deprecated: null
+          description: column name
+        - value: ticket_multi_use
+          is_deprecated: null
+          description: column name
+        - value: ticket_one_time_use
+          is_deprecated: null
+          description: column name
+        - value: ticket_sold
+          is_deprecated: null
+          description: column name
+        - value: total_proceeds
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedUserwalletConstraint
+      values:
+        - value: UserWallet_pkey
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+        - value: UserWallet_wallet_address_key
+          is_deprecated: null
+          description: unique or primary key constraint on columns "wallet_address"
+    - name: InsertTransactionDerivedUserwalletUpdateColumn
+      values:
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: wallet_address
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedTicketcollectionConstraint
+      values:
+        - value: TicketCollection_pkey
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+    - name: InsertTransactionDerivedTicketcollectionUpdateColumn
+      values:
+        - value: favorited
+          is_deprecated: null
+          description: column name
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: owner
+          is_deprecated: null
+          description: column name
+        - value: tiket_token_id
+          is_deprecated: null
+          description: column name
+        - value: verified
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedParticipantConstraint
+      values:
+        - value: participant_pk
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+    - name: InsertTransactionDerivedParticipantUpdateColumn
+      values:
+        - value: amount
+          is_deprecated: null
+          description: column name
+        - value: create_at
+          is_deprecated: null
+          description: column name
+        - value: event_cf_id
+          is_deprecated: null
+          description: column name
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: user_id
+          is_deprecated: null
+          description: column name
+    - name: InsertTransactionDerivedEventcfConstraint
+      values:
+        - value: eventcf_pk
+          is_deprecated: null
+          description: unique or primary key constraint on columns "id"
+    - name: InsertTransactionDerivedEventcfUpdateColumn
+      values:
+        - value: approver
+          is_deprecated: null
+          description: column name
+        - value: catogory_id
+          is_deprecated: null
+          description: column name
+        - value: current_raise
+          is_deprecated: null
+          description: column name
+        - value: end_date
+          is_deprecated: null
+          description: column name
+        - value: end_date_cf
+          is_deprecated: null
+          description: column name
+        - value: estimate_price
+          is_deprecated: null
+          description: column name
+        - value: event_id
+          is_deprecated: null
+          description: column name
+        - value: event_info
+          is_deprecated: null
+          description: column name
+        - value: event_name
+          is_deprecated: null
+          description: column name
+        - value: event_name_cf
+          is_deprecated: null
+          description: column name
+        - value: id
+          is_deprecated: null
+          description: column name
+        - value: image_event
+          is_deprecated: null
+          description: column name
+        - value: image_eventcf
+          is_deprecated: null
+          description: column name
+        - value: image_ticket
+          is_deprecated: null
+          description: column name
+        - value: location
+          is_deprecated: null
+          description: column name
+        - value: owner
+          is_deprecated: null
+          description: column name
+        - value: price_ticket
+          is_deprecated: null
+          description: column name
+        - value: start_date
+          is_deprecated: null
+          description: column name
+        - value: start_date_cf
+          is_deprecated: null
+          description: column name
+        - value: status
+          is_deprecated: null
+          description: column name
+        - value: supply
+          is_deprecated: null
+          description: column name
+        - value: ticket_class
+          is_deprecated: null
+          description: column name
+        - value: ticket_type
+          is_deprecated: null
+          description: column name
+        - value: total_raise
+          is_deprecated: null
+          description: column name
+  input_objects:
+    - name: InsertTransactionDerivedTransactionInsertInput
+    - name: InsertTransactionDerivedTickettokensObjRelInsertInput
+    - name: InsertTransactionDerivedTickettokensInsertInput
+    - name: InsertTransactionDerivedEventObjRelInsertInput
+    - name: InsertTransactionDerivedEventInsertInput
+    - name: InsertTransactionDerivedEventcatogoryitemArrRelInsertInput
+    - name: InsertTransactionDerivedEventcatogoryitemInsertInput
+    - name: InsertTransactionDerivedEventcatogoryObjRelInsertInput
+    - name: InsertTransactionDerivedEventcatogoryInsertInput
+    - name: InsertTransactionDerivedEventcatogoryOnConflict
+    - name: InsertTransactionDerivedEventcatogoryBoolExp
+    - name: InsertTransactionDerivedEventcatogoryitemBoolExp
+    - name: InsertTransactionDerivedEventBoolExp
+    - name: InsertTransactionDerivedTickettokensBoolExp
+    - name: InsertTransactionDerivedTicketaccesstokenBoolExp
+    - name: InsertTransactionDerivedIntComparisonExp
+    - name: InsertTransactionDerivedStringComparisonExp
+    - name: InsertTransactionDerivedTicketcollectionBoolExp
+    - name: InsertTransactionDerivedUsernonceBoolExp
+    - name: InsertTransactionDerivedTransactionBoolExp
+    - name: InsertTransactionDerivedTimestamptzComparisonExp
+    - name: InsertTransactionDerivedUseraccesstokenBoolExp
+    - name: InsertTransactionDerivedTimestampComparisonExp
+    - name: InsertTransactionDerivedUserwalletBoolExp
+    - name: InsertTransactionDerivedFloat8ComparisonExp
+    - name: InsertTransactionDerivedBooleanComparisonExp
+    - name: InsertTransactionDerivedJsonbComparisonExp
+    - name: InsertTransactionDerivedJsonbCastExp
+    - name: InsertTransactionDerivedEventcatogoryitemOnConflict
+    - name: InsertTransactionDerivedTickettokensArrRelInsertInput
+    - name: InsertTransactionDerivedTickettokensOnConflict
+    - name: InsertTransactionDerivedEventOnConflict
+    - name: InsertTransactionDerivedTicketaccesstokenArrRelInsertInput
+    - name: InsertTransactionDerivedTicketaccesstokenInsertInput
+    - name: InsertTransactionDerivedTicketaccesstokenOnConflict
+    - name: InsertTransactionDerivedTicketcollectionArrRelInsertInput
+    - name: InsertTransactionDerivedTicketcollectionInsertInput
+    - name: InsertTransactionDerivedUsernonceObjRelInsertInput
+    - name: InsertTransactionDerivedUsernonceInsertInput
+    - name: InsertTransactionDerivedTransactionArrRelInsertInput
+    - name: InsertTransactionDerivedTransactionOnConflict
+    - name: InsertTransactionDerivedUseraccesstokenArrRelInsertInput
+    - name: InsertTransactionDerivedUseraccesstokenInsertInput
+    - name: InsertTransactionDerivedUseraccesstokenOnConflict
+    - name: InsertTransactionDerivedUserwalletObjRelInsertInput
+    - name: InsertTransactionDerivedUserwalletInsertInput
+    - name: InsertTransactionDerivedUsernonceArrRelInsertInput
+    - name: InsertTransactionDerivedUsernonceOnConflict
+    - name: InsertTransactionDerivedUserwalletOnConflict
+    - name: InsertTransactionDerivedTicketcollectionOnConflict
+    - name: SampleInput
+    - name: InsertTransactionDerivedEventcfObjRelInsertInput
+    - name: InsertTransactionDerivedEventcfInsertInput
+    - name: InsertTransactionDerivedEventArrRelInsertInput
+    - name: InsertTransactionDerivedEventcfBoolExp
+    - name: InsertTransactionDerivedParticipantBoolExp
+    - name: InsertTransactionDerivedParticipantArrRelInsertInput
+    - name: InsertTransactionDerivedParticipantInsertInput
+    - name: InsertTransactionDerivedParticipantOnConflict
+    - name: InsertTransactionDerivedEventcfOnConflict
+  objects:
+    - name: wallet
+    - name: event
+    - name: Ticket
+    - name: ticket
+    - name: data
+    - name: MyQueryOutput
+    - name: InsertTransactionDerivedOutput
+    - name: SampleOutput
+    - name: InsertEventcfDerivedOutput
+    - name: data_sell
+    - name: ouput
+  scalars: []

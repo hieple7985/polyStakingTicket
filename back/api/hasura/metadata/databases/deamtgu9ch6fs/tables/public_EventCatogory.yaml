@@ -1,0 +1,11 @@
+table:
+  schema: public
+  name: EventCatogory
+array_relationships:
+  - name: EventCatogoryItems
+    using:
+      foreign_key_constraint_on:
+        column: catogory_id
+        table:
+          schema: public
+          name: EventCatogoryItem

@@ -1,0 +1,923 @@
+type Mutation {
+  JoinCF(
+    input: SampleInput!
+  ): SampleOutput
+}
+
+type Mutation {
+  approveTicket(
+    user_id: Int!
+    token: Int!
+  ): data
+}
+
+type Mutation {
+  createBuyTicket(
+    create_at: timestamptz
+    ticket_id: Int!
+    owner_address: String!
+    id_transaction: Int!
+    user_id: Int!
+  ): ticket
+}
+
+type Mutation {
+  createEvent(
+    end_date: timestamp!
+    image: String!
+    owner: String!
+    localtion: String!
+    name: String!
+    start_date: timestamp!
+    catogory_id: jsonb
+  ): event
+}
+
+type Mutation {
+  createEventcf(
+    approver: jsonb!
+    catogory_id: jsonb
+    end_date: timestamp!
+    end_date_cf: timestamp!
+    estimate_price: float8
+    event_info: String
+    event_name: String
+    image_event: String
+    image_eventcf: String
+    image_ticket: String
+    location: String
+    owner: String
+    start_date: timestamp!
+    start_date_cf: timestamp!
+    supply: Int!
+    total_raise: Int!
+    ticket_class: String!
+    event_name_cf: String!
+    price_ticket: float8!
+  ): InsertEventcfDerivedOutput
+}
+
+type Mutation {
+  createExchange(
+    create_at: timestamptz
+    ticket_id: Int!
+    owner_address: String!
+  ): data
+}
+
+type Mutation {
+  createQrCode(
+    ticket_id: Int!
+  ): data
+}
+
+type Mutation {
+  createSellTicket(
+    id: Int!
+    price: float8!
+  ): data_sell
+}
+
+type Mutation {
+  createTicket(
+    input: [InsertTransactionDerivedTransactionInsertInput!]!
+    supply: Int!
+  ): Ticket
+}
+
+type Mutation {
+  createWallet(
+    wallet_address: String!
+  ): wallet
+}
+
+type Mutation {
+  exchangeCurrency(
+    currency: float8!
+  ): ouput
+}
+
+enum InsertTransactionDerivedEventcatogoryConstraint {
+  """ unique or primary key constraint on columns "id" """ EventCatogory_pkey
+}
+
+enum InsertTransactionDerivedEventcatogoryUpdateColumn {
+  """ column name """ id
+  """ column name """ name
+  """ column name """ type
+}
+
+enum InsertTransactionDerivedEventcatogoryitemConstraint {
+  """ unique or primary key constraint on columns "id" """ EventCatogoryItem_pkey
+}
+
+enum InsertTransactionDerivedEventcatogoryitemUpdateColumn {
+  """ column name """ catogory_id
+  """ column name """ event_id
+  """ column name """ id
+}
+
+enum InsertTransactionDerivedTickettokensConstraint {
+  """ unique or primary key constraint on columns "id" """ TicketTokens_pkey
+}
+
+enum InsertTransactionDerivedTickettokensUpdateColumn {
+  """ column name """ approver
+  """ column name """ class_ticket
+  """ column name """ event
+  """ column name """ id
+  """ column name """ image_link
+  """ column name """ owner_address
+  """ column name """ price
+  """ column name """ qrcode
+  """ column name """ status
+  """ column name """ ticket_type
+  """ column name """ usable
+}
+
+enum InsertTransactionDerivedEventConstraint {
+  """ unique or primary key constraint on columns "id" """ Event_pkey
+}
+
+enum InsertTransactionDerivedEventUpdateColumn {
+  """ column name """ end_date
+  """ column name """ eventcf
+  """ column name """ id
+  """ column name """ image
+  """ column name """ localtion
+  """ column name """ name
+  """ column name """ owner
+  """ column name """ start_date
+  """ column name """ status
+  """ column name """ ticket_issued
+  """ column name """ ticket_sold
+  """ column name """ total_proceed
+}
+
+enum InsertTransactionDerivedTicketaccesstokenConstraint {
+  """ unique or primary key constraint on columns "id" """ TicketAccessToken_pkey
+  """ unique or primary key constraint on columns "ticket_token_id" """ TicketAccessToken_ticket_token_id_key
+  """ unique or primary key constraint on columns "token" """ TicketAccessToken_token_key
+}
+
+enum InsertTransactionDerivedTicketaccesstokenUpdateColumn {
+  """ column name """ id
+  """ column name """ owner_address
+  """ column name """ ticket_token_id
+  """ column name """ token
+}
+
+enum InsertTransactionDerivedTransactionConstraint {
+  """ unique or primary key constraint on columns "id" """ Transaction_pkey
+}
+
+enum InsertTransactionDerivedTransactionUpdateColumn {
+  """ column name """ create_at
+  """ column name """ id
+  """ column name """ status
+  """ column name """ ticket_id
+  """ column name """ type
+  """ column name """ user_id
+}
+
+enum InsertTransactionDerivedUseraccesstokenConstraint {
+  """ unique or primary key constraint on columns "id" """ UserAccessToken_pkey
+  """ unique or primary key constraint on columns "token" """ UserAccessToken_token_key
+}
+
+enum InsertTransactionDerivedUseraccesstokenUpdateColumn {
+  """ column name """ expires_at
+  """ column name """ id
+  """ column name """ token
+  """ column name """ user_id
+}
+
+enum InsertTransactionDerivedUsernonceConstraint {
+  """ unique or primary key constraint on columns "address_id" """ UserNonce_address_key
+  """ unique or primary key constraint on columns "id" """ UserNonce_pkey
+}
+
+enum InsertTransactionDerivedUsernonceUpdateColumn {
+  """ column name """ address_id
+  """ column name """ id
+  """ column name """ money_total_ticket_mul
+  """ column name """ money_total_ticket_ot
+  """ column name """ ticket_bought
+  """ column name """ ticket_issued
+  """ column name """ ticket_multi_use
+  """ column name """ ticket_one_time_use
+  """ column name """ ticket_sold
+  """ column name """ total_proceeds
+}
+
+enum InsertTransactionDerivedUserwalletConstraint {
+  """ unique or primary key constraint on columns "id" """ UserWallet_pkey
+  """ unique or primary key constraint on columns "wallet_address" """ UserWallet_wallet_address_key
+}
+
+enum InsertTransactionDerivedUserwalletUpdateColumn {
+  """ column name """ id
+  """ column name """ wallet_address
+}
+
+enum InsertTransactionDerivedTicketcollectionConstraint {
+  """ unique or primary key constraint on columns "id" """ TicketCollection_pkey
+}
+
+enum InsertTransactionDerivedTicketcollectionUpdateColumn {
+  """ column name """ favorited
+  """ column name """ id
+  """ column name """ owner
+  """ column name """ tiket_token_id
+  """ column name """ verified
+}
+
+enum InsertTransactionDerivedParticipantConstraint {
+  """ unique or primary key constraint on columns "id" """ participant_pk
+}
+
+enum InsertTransactionDerivedParticipantUpdateColumn {
+  """ column name """ amount
+  """ column name """ create_at
+  """ column name """ event_cf_id
+  """ column name """ id
+  """ column name """ user_id
+}
+
+enum InsertTransactionDerivedEventcfConstraint {
+  """ unique or primary key constraint on columns "id" """ eventcf_pk
+}
+
+enum InsertTransactionDerivedEventcfUpdateColumn {
+  """ column name """ approver
+  """ column name """ catogory_id
+  """ column name """ current_raise
+  """ column name """ end_date
+  """ column name """ end_date_cf
+  """ column name """ estimate_price
+  """ column name """ event_id
+  """ column name """ event_info
+  """ column name """ event_name
+  """ column name """ event_name_cf
+  """ column name """ id
+  """ column name """ image_event
+  """ column name """ image_eventcf
+  """ column name """ image_ticket
+  """ column name """ location
+  """ column name """ owner
+  """ column name """ price_ticket
+  """ column name """ start_date
+  """ column name """ start_date_cf
+  """ column name """ status
+  """ column name """ supply
+  """ column name """ ticket_class
+  """ column name """ ticket_type
+  """ column name """ total_raise
+}
+
+input InsertTransactionDerivedTransactionInsertInput {
+  TicketToken: InsertTransactionDerivedTickettokensObjRelInsertInput
+  UserNonce: InsertTransactionDerivedUsernonceObjRelInsertInput
+  create_at: timestamptz
+  id: Int
+  status: Int
+  ticket_id: Int
+  type: Int
+  user_id: Int
+}
+
+input InsertTransactionDerivedTickettokensObjRelInsertInput {
+  data: InsertTransactionDerivedTickettokensInsertInput!
+  on_conflict: InsertTransactionDerivedTickettokensOnConflict
+}
+
+input InsertTransactionDerivedTickettokensInsertInput {
+  Event: InsertTransactionDerivedEventObjRelInsertInput
+  TicketAccessTokens: InsertTransactionDerivedTicketaccesstokenArrRelInsertInput
+  TicketCollections: InsertTransactionDerivedTicketcollectionArrRelInsertInput
+  Transactions: InsertTransactionDerivedTransactionArrRelInsertInput
+  UserAccessTokens: InsertTransactionDerivedUseraccesstokenArrRelInsertInput
+  approver: jsonb
+  class_ticket: String
+  event: Int
+  id: Int
+  image_link: String
+  owner_address: String
+  price: float8
+  qrcode: String
+  status: Int
+  ticket_type: Int
+  usable: Int
+}
+
+input InsertTransactionDerivedEventObjRelInsertInput {
+  data: InsertTransactionDerivedEventInsertInput!
+  on_conflict: InsertTransactionDerivedEventOnConflict
+}
+
+input InsertTransactionDerivedEventInsertInput {
+  EventCF: InsertTransactionDerivedEventcfObjRelInsertInput
+  EventCatogoryItems: InsertTransactionDerivedEventcatogoryitemArrRelInsertInput
+  TicketTokens: InsertTransactionDerivedTickettokensArrRelInsertInput
+  end_date: timestamp
+  eventcf: Int
+  id: Int
+  image: String
+  localtion: String
+  name: String
+  owner: String
+  start_date: timestamp
+  status: Int
+  ticket_issued: Int
+  ticket_sold: Int
+  total_proceed: float8
+}
+
+input InsertTransactionDerivedEventcatogoryitemArrRelInsertInput {
+  data: [InsertTransactionDerivedEventcatogoryitemInsertInput!]!
+  on_conflict: InsertTransactionDerivedEventcatogoryitemOnConflict
+}
+
+input InsertTransactionDerivedEventcatogoryitemInsertInput {
+  Event: InsertTransactionDerivedEventObjRelInsertInput
+  EventCatogory: InsertTransactionDerivedEventcatogoryObjRelInsertInput
+  catogory_id: Int
+  event_id: Int
+  id: Int
+}
+
+input InsertTransactionDerivedEventcatogoryObjRelInsertInput {
+  data: InsertTransactionDerivedEventcatogoryInsertInput!
+  on_conflict: InsertTransactionDerivedEventcatogoryOnConflict
+}
+
+input InsertTransactionDerivedEventcatogoryInsertInput {
+  EventCatogoryItems: InsertTransactionDerivedEventcatogoryitemArrRelInsertInput
+  id: Int
+  name: String
+  type: String
+}
+
+input InsertTransactionDerivedEventcatogoryOnConflict {
+  constraint: InsertTransactionDerivedEventcatogoryConstraint!
+  update_columns: [InsertTransactionDerivedEventcatogoryUpdateColumn!]!
+  where: InsertTransactionDerivedEventcatogoryBoolExp
+}
+
+input InsertTransactionDerivedEventcatogoryBoolExp {
+  EventCatogoryItems: InsertTransactionDerivedEventcatogoryitemBoolExp
+  _and: [InsertTransactionDerivedEventcatogoryBoolExp!]
+  _not: InsertTransactionDerivedEventcatogoryBoolExp
+  _or: [InsertTransactionDerivedEventcatogoryBoolExp!]
+  id: InsertTransactionDerivedIntComparisonExp
+  name: InsertTransactionDerivedStringComparisonExp
+  type: InsertTransactionDerivedStringComparisonExp
+}
+
+input InsertTransactionDerivedEventcatogoryitemBoolExp {
+  Event: InsertTransactionDerivedEventBoolExp
+  EventCatogory: InsertTransactionDerivedEventcatogoryBoolExp
+  _and: [InsertTransactionDerivedEventcatogoryitemBoolExp!]
+  _not: InsertTransactionDerivedEventcatogoryitemBoolExp
+  _or: [InsertTransactionDerivedEventcatogoryitemBoolExp!]
+  catogory_id: InsertTransactionDerivedIntComparisonExp
+  event_id: InsertTransactionDerivedIntComparisonExp
+  id: InsertTransactionDerivedIntComparisonExp
+}
+
+input InsertTransactionDerivedEventBoolExp {
+  EventCF: InsertTransactionDerivedEventcfBoolExp
+  EventCatogoryItems: InsertTransactionDerivedEventcatogoryitemBoolExp
+  TicketTokens: InsertTransactionDerivedTickettokensBoolExp
+  _and: [InsertTransactionDerivedEventBoolExp!]
+  _not: InsertTransactionDerivedEventBoolExp
+  _or: [InsertTransactionDerivedEventBoolExp!]
+  end_date: InsertTransactionDerivedTimestampComparisonExp
+  eventcf: InsertTransactionDerivedIntComparisonExp
+  id: InsertTransactionDerivedIntComparisonExp
+  image: InsertTransactionDerivedStringComparisonExp
+  localtion: InsertTransactionDerivedStringComparisonExp
+  name: InsertTransactionDerivedStringComparisonExp
+  owner: InsertTransactionDerivedStringComparisonExp
+  start_date: InsertTransactionDerivedTimestampComparisonExp
+  status: InsertTransactionDerivedIntComparisonExp
+  ticket_issued: InsertTransactionDerivedIntComparisonExp
+  ticket_sold: InsertTransactionDerivedIntComparisonExp
+  total_proceed: InsertTransactionDerivedFloat8ComparisonExp
+}
+
+input InsertTransactionDerivedTickettokensBoolExp {
+  Event: InsertTransactionDerivedEventBoolExp
+  TicketAccessTokens: InsertTransactionDerivedTicketaccesstokenBoolExp
+  TicketCollections: InsertTransactionDerivedTicketcollectionBoolExp
+  Transactions: InsertTransactionDerivedTransactionBoolExp
+  UserAccessTokens: InsertTransactionDerivedUseraccesstokenBoolExp
+  _and: [InsertTransactionDerivedTickettokensBoolExp!]
+  _not: InsertTransactionDerivedTickettokensBoolExp
+  _or: [InsertTransactionDerivedTickettokensBoolExp!]
+  approver: InsertTransactionDerivedJsonbComparisonExp
+  class_ticket: InsertTransactionDerivedStringComparisonExp
+  event: InsertTransactionDerivedIntComparisonExp
+  id: InsertTransactionDerivedIntComparisonExp
+  image_link: InsertTransactionDerivedStringComparisonExp
+  owner_address: InsertTransactionDerivedStringComparisonExp
+  price: InsertTransactionDerivedFloat8ComparisonExp
+  qrcode: InsertTransactionDerivedStringComparisonExp
+  status: InsertTransactionDerivedIntComparisonExp
+  ticket_type: InsertTransactionDerivedIntComparisonExp
+  usable: InsertTransactionDerivedIntComparisonExp
+}
+
+input InsertTransactionDerivedTicketaccesstokenBoolExp {
+  TicketToken: InsertTransactionDerivedTickettokensBoolExp
+  _and: [InsertTransactionDerivedTicketaccesstokenBoolExp!]
+  _not: InsertTransactionDerivedTicketaccesstokenBoolExp
+  _or: [InsertTransactionDerivedTicketaccesstokenBoolExp!]
+  id: InsertTransactionDerivedIntComparisonExp
+  owner_address: InsertTransactionDerivedStringComparisonExp
+  ticket_token_id: InsertTransactionDerivedIntComparisonExp
+  token: InsertTransactionDerivedIntComparisonExp
+}
+
+input InsertTransactionDerivedIntComparisonExp {
+  _eq: Int
+  _gt: Int
+  _gte: Int
+  _in: [Int!]
+  _is_null: Boolean
+  _lt: Int
+  _lte: Int
+  _neq: Int
+  _nin: [Int!]
+}
+
+input InsertTransactionDerivedStringComparisonExp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _iregex: String
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _niregex: String
+  _nlike: String
+  _nregex: String
+  _nsimilar: String
+  _regex: String
+  _similar: String
+}
+
+input InsertTransactionDerivedTicketcollectionBoolExp {
+  TicketToken: InsertTransactionDerivedTickettokensBoolExp
+  UserNonce: InsertTransactionDerivedUsernonceBoolExp
+  _and: [InsertTransactionDerivedTicketcollectionBoolExp!]
+  _not: InsertTransactionDerivedTicketcollectionBoolExp
+  _or: [InsertTransactionDerivedTicketcollectionBoolExp!]
+  favorited: InsertTransactionDerivedIntComparisonExp
+  id: InsertTransactionDerivedIntComparisonExp
+  owner: InsertTransactionDerivedIntComparisonExp
+  tiket_token_id: InsertTransactionDerivedIntComparisonExp
+  verified: InsertTransactionDerivedBooleanComparisonExp
+}
+
+input InsertTransactionDerivedUsernonceBoolExp {
+  Participants: InsertTransactionDerivedParticipantBoolExp
+  TicketCollections: InsertTransactionDerivedTicketcollectionBoolExp
+  Transactions: InsertTransactionDerivedTransactionBoolExp
+  UserAccessTokens: InsertTransactionDerivedUseraccesstokenBoolExp
+  UserWallet: InsertTransactionDerivedUserwalletBoolExp
+  _and: [InsertTransactionDerivedUsernonceBoolExp!]
+  _not: InsertTransactionDerivedUsernonceBoolExp
+  _or: [InsertTransactionDerivedUsernonceBoolExp!]
+  address_id: InsertTransactionDerivedIntComparisonExp
+  id: InsertTransactionDerivedIntComparisonExp
+  money_total_ticket_mul: InsertTransactionDerivedFloat8ComparisonExp
+  money_total_ticket_ot: InsertTransactionDerivedFloat8ComparisonExp
+  ticket_bought: InsertTransactionDerivedIntComparisonExp
+  ticket_issued: InsertTransactionDerivedIntComparisonExp
+  ticket_multi_use: InsertTransactionDerivedIntComparisonExp
+  ticket_one_time_use: InsertTransactionDerivedIntComparisonExp
+  ticket_sold: InsertTransactionDerivedIntComparisonExp
+  total_proceeds: InsertTransactionDerivedFloat8ComparisonExp
+}
+
+input InsertTransactionDerivedTransactionBoolExp {
+  TicketToken: InsertTransactionDerivedTickettokensBoolExp
+  UserNonce: InsertTransactionDerivedUsernonceBoolExp
+  _and: [InsertTransactionDerivedTransactionBoolExp!]
+  _not: InsertTransactionDerivedTransactionBoolExp
+  _or: [InsertTransactionDerivedTransactionBoolExp!]
+  create_at: InsertTransactionDerivedTimestamptzComparisonExp
+  id: InsertTransactionDerivedIntComparisonExp
+  status: InsertTransactionDerivedIntComparisonExp
+  ticket_id: InsertTransactionDerivedIntComparisonExp
+  type: InsertTransactionDerivedIntComparisonExp
+  user_id: InsertTransactionDerivedIntComparisonExp
+}
+
+input InsertTransactionDerivedTimestamptzComparisonExp {
+  _eq: timestamptz
+  _gt: timestamptz
+  _gte: timestamptz
+  _in: [timestamptz!]
+  _is_null: Boolean
+  _lt: timestamptz
+  _lte: timestamptz
+  _neq: timestamptz
+  _nin: [timestamptz!]
+}
+
+input InsertTransactionDerivedUseraccesstokenBoolExp {
+  TicketToken: InsertTransactionDerivedTickettokensBoolExp
+  UserNonce: InsertTransactionDerivedUsernonceBoolExp
+  _and: [InsertTransactionDerivedUseraccesstokenBoolExp!]
+  _not: InsertTransactionDerivedUseraccesstokenBoolExp
+  _or: [InsertTransactionDerivedUseraccesstokenBoolExp!]
+  expires_at: InsertTransactionDerivedTimestampComparisonExp
+  id: InsertTransactionDerivedIntComparisonExp
+  token: InsertTransactionDerivedIntComparisonExp
+  user_id: InsertTransactionDerivedIntComparisonExp
+}
+
+input InsertTransactionDerivedTimestampComparisonExp {
+  _eq: timestamp
+  _gt: timestamp
+  _gte: timestamp
+  _in: [timestamp!]
+  _is_null: Boolean
+  _lt: timestamp
+  _lte: timestamp
+  _neq: timestamp
+  _nin: [timestamp!]
+}
+
+input InsertTransactionDerivedUserwalletBoolExp {
+  UserNonces: InsertTransactionDerivedUsernonceBoolExp
+  _and: [InsertTransactionDerivedUserwalletBoolExp!]
+  _not: InsertTransactionDerivedUserwalletBoolExp
+  _or: [InsertTransactionDerivedUserwalletBoolExp!]
+  id: InsertTransactionDerivedIntComparisonExp
+  wallet_address: InsertTransactionDerivedStringComparisonExp
+}
+
+input InsertTransactionDerivedFloat8ComparisonExp {
+  _eq: float8
+  _gt: float8
+  _gte: float8
+  _in: [float8!]
+  _is_null: Boolean
+  _lt: float8
+  _lte: float8
+  _neq: float8
+  _nin: [float8!]
+}
+
+input InsertTransactionDerivedBooleanComparisonExp {
+  _eq: Boolean
+  _gt: Boolean
+  _gte: Boolean
+  _in: [Boolean!]
+  _is_null: Boolean
+  _lt: Boolean
+  _lte: Boolean
+  _neq: Boolean
+  _nin: [Boolean!]
+}
+
+input InsertTransactionDerivedJsonbComparisonExp {
+  _cast: InsertTransactionDerivedJsonbCastExp
+  _contained_in: jsonb
+  _contains: jsonb
+  _eq: jsonb
+  _gt: jsonb
+  _gte: jsonb
+  _has_key: String
+  _has_keys_all: [String!]
+  _has_keys_any: [String!]
+  _in: [jsonb!]
+  _is_null: Boolean
+  _lt: jsonb
+  _lte: jsonb
+  _neq: jsonb
+  _nin: [jsonb!]
+}
+
+input InsertTransactionDerivedJsonbCastExp {
+  String: InsertTransactionDerivedStringComparisonExp
+}
+
+input InsertTransactionDerivedEventcatogoryitemOnConflict {
+  constraint: InsertTransactionDerivedEventcatogoryitemConstraint!
+  update_columns: [InsertTransactionDerivedEventcatogoryitemUpdateColumn!]!
+  where: InsertTransactionDerivedEventcatogoryitemBoolExp
+}
+
+input InsertTransactionDerivedTickettokensArrRelInsertInput {
+  data: [InsertTransactionDerivedTickettokensInsertInput!]!
+  on_conflict: InsertTransactionDerivedTickettokensOnConflict
+}
+
+input InsertTransactionDerivedTickettokensOnConflict {
+  constraint: InsertTransactionDerivedTickettokensConstraint!
+  update_columns: [InsertTransactionDerivedTickettokensUpdateColumn!]!
+  where: InsertTransactionDerivedTickettokensBoolExp
+}
+
+input InsertTransactionDerivedEventOnConflict {
+  constraint: InsertTransactionDerivedEventConstraint!
+  update_columns: [InsertTransactionDerivedEventUpdateColumn!]!
+  where: InsertTransactionDerivedEventBoolExp
+}
+
+input InsertTransactionDerivedTicketaccesstokenArrRelInsertInput {
+  data: [InsertTransactionDerivedTicketaccesstokenInsertInput!]!
+  on_conflict: InsertTransactionDerivedTicketaccesstokenOnConflict
+}
+
+input InsertTransactionDerivedTicketaccesstokenInsertInput {
+  TicketToken: InsertTransactionDerivedTickettokensObjRelInsertInput
+  id: Int
+  owner_address: String
+  ticket_token_id: Int
+  token: Int
+}
+
+input InsertTransactionDerivedTicketaccesstokenOnConflict {
+  constraint: InsertTransactionDerivedTicketaccesstokenConstraint!
+  update_columns: [InsertTransactionDerivedTicketaccesstokenUpdateColumn!]!
+  where: InsertTransactionDerivedTicketaccesstokenBoolExp
+}
+
+input InsertTransactionDerivedTicketcollectionArrRelInsertInput {
+  data: [InsertTransactionDerivedTicketcollectionInsertInput!]!
+  on_conflict: InsertTransactionDerivedTicketcollectionOnConflict
+}
+
+input InsertTransactionDerivedTicketcollectionInsertInput {
+  TicketToken: InsertTransactionDerivedTickettokensObjRelInsertInput
+  UserNonce: InsertTransactionDerivedUsernonceObjRelInsertInput
+  favorited: Int
+  id: Int
+  owner: Int
+  tiket_token_id: Int
+  verified: Boolean
+}
+
+input InsertTransactionDerivedUsernonceObjRelInsertInput {
+  data: InsertTransactionDerivedUsernonceInsertInput!
+  on_conflict: InsertTransactionDerivedUsernonceOnConflict
+}
+
+input InsertTransactionDerivedUsernonceInsertInput {
+  Participants: InsertTransactionDerivedParticipantArrRelInsertInput
+  TicketCollections: InsertTransactionDerivedTicketcollectionArrRelInsertInput
+  Transactions: InsertTransactionDerivedTransactionArrRelInsertInput
+  UserAccessTokens: InsertTransactionDerivedUseraccesstokenArrRelInsertInput
+  UserWallet: InsertTransactionDerivedUserwalletObjRelInsertInput
+  address_id: Int
+  id: Int
+  money_total_ticket_mul: float8
+  money_total_ticket_ot: float8
+  ticket_bought: Int
+  ticket_issued: Int
+  ticket_multi_use: Int
+  ticket_one_time_use: Int
+  ticket_sold: Int
+  total_proceeds: float8
+}
+
+input InsertTransactionDerivedTransactionArrRelInsertInput {
+  data: [InsertTransactionDerivedTransactionInsertInput!]!
+  on_conflict: InsertTransactionDerivedTransactionOnConflict
+}
+
+input InsertTransactionDerivedTransactionOnConflict {
+  constraint: InsertTransactionDerivedTransactionConstraint!
+  update_columns: [InsertTransactionDerivedTransactionUpdateColumn!]!
+  where: InsertTransactionDerivedTransactionBoolExp
+}
+
+input InsertTransactionDerivedUseraccesstokenArrRelInsertInput {
+  data: [InsertTransactionDerivedUseraccesstokenInsertInput!]!
+  on_conflict: InsertTransactionDerivedUseraccesstokenOnConflict
+}
+
+input InsertTransactionDerivedUseraccesstokenInsertInput {
+  TicketToken: InsertTransactionDerivedTickettokensObjRelInsertInput
+  UserNonce: InsertTransactionDerivedUsernonceObjRelInsertInput
+  expires_at: timestamp
+  id: Int
+  token: Int
+  user_id: Int
+}
+
+input InsertTransactionDerivedUseraccesstokenOnConflict {
+  constraint: InsertTransactionDerivedUseraccesstokenConstraint!
+  update_columns: [InsertTransactionDerivedUseraccesstokenUpdateColumn!]!
+  where: InsertTransactionDerivedUseraccesstokenBoolExp
+}
+
+input InsertTransactionDerivedUserwalletObjRelInsertInput {
+  data: InsertTransactionDerivedUserwalletInsertInput!
+  on_conflict: InsertTransactionDerivedUserwalletOnConflict
+}
+
+input InsertTransactionDerivedUserwalletInsertInput {
+  UserNonces: InsertTransactionDerivedUsernonceArrRelInsertInput
+  id: Int
+  wallet_address: String
+}
+
+input InsertTransactionDerivedUsernonceArrRelInsertInput {
+  data: [InsertTransactionDerivedUsernonceInsertInput!]!
+  on_conflict: InsertTransactionDerivedUsernonceOnConflict
+}
+
+input InsertTransactionDerivedUsernonceOnConflict {
+  constraint: InsertTransactionDerivedUsernonceConstraint!
+  update_columns: [InsertTransactionDerivedUsernonceUpdateColumn!]!
+  where: InsertTransactionDerivedUsernonceBoolExp
+}
+
+input InsertTransactionDerivedUserwalletOnConflict {
+  constraint: InsertTransactionDerivedUserwalletConstraint!
+  update_columns: [InsertTransactionDerivedUserwalletUpdateColumn!]!
+  where: InsertTransactionDerivedUserwalletBoolExp
+}
+
+input InsertTransactionDerivedTicketcollectionOnConflict {
+  constraint: InsertTransactionDerivedTicketcollectionConstraint!
+  update_columns: [InsertTransactionDerivedTicketcollectionUpdateColumn!]!
+  where: InsertTransactionDerivedTicketcollectionBoolExp
+}
+
+input SampleInput {
+  eventcf_id: Int!
+  amount: Int!
+  wallet_address: String!
+}
+
+input InsertTransactionDerivedEventcfObjRelInsertInput {
+  data: InsertTransactionDerivedEventcfInsertInput!
+  on_conflict: InsertTransactionDerivedEventcfOnConflict
+}
+
+input InsertTransactionDerivedEventcfInsertInput {
+  Events: InsertTransactionDerivedEventArrRelInsertInput
+  Participants: InsertTransactionDerivedParticipantArrRelInsertInput
+  approver: jsonb
+  catogory_id: jsonb
+  current_raise: Int
+  end_date: timestamp
+  end_date_cf: timestamp
+  estimate_price: float8
+  event_id: Int
+  event_info: String
+  event_name: String
+  event_name_cf: String
+  id: Int
+  image_event: String
+  image_eventcf: String
+  image_ticket: String
+  location: String
+  owner: String
+  price_ticket: float8
+  start_date: timestamp
+  start_date_cf: timestamp
+  status: Int
+  supply: Int
+  ticket_class: String
+  ticket_type: Int
+  total_raise: Int
+}
+
+input InsertTransactionDerivedEventArrRelInsertInput {
+  data: [InsertTransactionDerivedEventInsertInput!]!
+  on_conflict: InsertTransactionDerivedEventOnConflict
+}
+
+input InsertTransactionDerivedEventcfBoolExp {
+  Events: InsertTransactionDerivedEventBoolExp
+  Participants: InsertTransactionDerivedParticipantBoolExp
+  _and: [InsertTransactionDerivedEventcfBoolExp!]
+  _not: InsertTransactionDerivedEventcfBoolExp
+  _or: [InsertTransactionDerivedEventcfBoolExp!]
+  approver: InsertTransactionDerivedJsonbComparisonExp
+  catogory_id: InsertTransactionDerivedJsonbComparisonExp
+  current_raise: InsertTransactionDerivedIntComparisonExp
+  end_date: InsertTransactionDerivedTimestampComparisonExp
+  end_date_cf: InsertTransactionDerivedTimestampComparisonExp
+  estimate_price: InsertTransactionDerivedFloat8ComparisonExp
+  event_id: InsertTransactionDerivedIntComparisonExp
+  event_info: InsertTransactionDerivedStringComparisonExp
+  event_name: InsertTransactionDerivedStringComparisonExp
+  event_name_cf: InsertTransactionDerivedStringComparisonExp
+  id: InsertTransactionDerivedIntComparisonExp
+  image_event: InsertTransactionDerivedStringComparisonExp
+  image_eventcf: InsertTransactionDerivedStringComparisonExp
+  image_ticket: InsertTransactionDerivedStringComparisonExp
+  location: InsertTransactionDerivedStringComparisonExp
+  owner: InsertTransactionDerivedStringComparisonExp
+  price_ticket: InsertTransactionDerivedFloat8ComparisonExp
+  start_date: InsertTransactionDerivedTimestampComparisonExp
+  start_date_cf: InsertTransactionDerivedTimestampComparisonExp
+  status: InsertTransactionDerivedIntComparisonExp
+  supply: InsertTransactionDerivedIntComparisonExp
+  ticket_class: InsertTransactionDerivedStringComparisonExp
+  ticket_type: InsertTransactionDerivedIntComparisonExp
+  total_raise: InsertTransactionDerivedIntComparisonExp
+}
+
+input InsertTransactionDerivedParticipantBoolExp {
+  EventCF: InsertTransactionDerivedEventcfBoolExp
+  UserNonce: InsertTransactionDerivedUsernonceBoolExp
+  _and: [InsertTransactionDerivedParticipantBoolExp!]
+  _not: InsertTransactionDerivedParticipantBoolExp
+  _or: [InsertTransactionDerivedParticipantBoolExp!]
+  amount: InsertTransactionDerivedIntComparisonExp
+  create_at: InsertTransactionDerivedTimestampComparisonExp
+  event_cf_id: InsertTransactionDerivedIntComparisonExp
+  id: InsertTransactionDerivedIntComparisonExp
+  user_id: InsertTransactionDerivedIntComparisonExp
+}
+
+input InsertTransactionDerivedParticipantArrRelInsertInput {
+  data: [InsertTransactionDerivedParticipantInsertInput!]!
+  on_conflict: InsertTransactionDerivedParticipantOnConflict
+}
+
+input InsertTransactionDerivedParticipantInsertInput {
+  EventCF: InsertTransactionDerivedEventcfObjRelInsertInput
+  UserNonce: InsertTransactionDerivedUsernonceObjRelInsertInput
+  amount: Int
+  create_at: timestamp
+  event_cf_id: Int
+  id: Int
+  user_id: Int
+}
+
+input InsertTransactionDerivedParticipantOnConflict {
+  constraint: InsertTransactionDerivedParticipantConstraint!
+  update_columns: [InsertTransactionDerivedParticipantUpdateColumn!]!
+  where: InsertTransactionDerivedParticipantBoolExp
+}
+
+input InsertTransactionDerivedEventcfOnConflict {
+  constraint: InsertTransactionDerivedEventcfConstraint!
+  update_columns: [InsertTransactionDerivedEventcfUpdateColumn!]!
+  where: InsertTransactionDerivedEventcfBoolExp
+}
+
+type wallet {
+  wallet_address: String
+  user_id: Int!
+}
+
+type event {
+  event: jsonb!
+}
+
+type Ticket {
+  data: jsonb!
+}
+
+type ticket {
+  data: jsonb!
+}
+
+type data {
+  data: jsonb!
+}
+
+type MyQueryOutput {
+  currency: float8
+  date_update: timestamp
+  id: Int!
+}
+
+type InsertTransactionDerivedOutput {
+  affected_rows: Int!
+}
+
+type SampleOutput {
+  data: jsonb!
+}
+
+type InsertEventcfDerivedOutput {
+  affected_rows: Int!
+}
+
+type data_sell {
+  data: jsonb!
+}
+
+type ouput {
+  currency: float8!
+}
+

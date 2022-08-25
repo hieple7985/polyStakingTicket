@@ -1,0 +1,11 @@
+table:
+  schema: public
+  name: UserWallet
+array_relationships:
+  - name: UserNonces
+    using:
+      foreign_key_constraint_on:
+        column: address_id
+        table:
+          schema: public
+          name: UserNonce

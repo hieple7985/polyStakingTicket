@@ -1,0 +1,3 @@
+table:
+  schema: public
+  name: eventcf_start_now

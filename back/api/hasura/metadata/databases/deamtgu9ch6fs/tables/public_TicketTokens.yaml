@@ -1,0 +1,57 @@
+table:
+  schema: public
+  name: TicketTokens
+object_relationships:
+  - name: Event
+    using:
+      foreign_key_constraint_on: event
+array_relationships:
+  - name: TicketAccessTokens
+    using:
+      foreign_key_constraint_on:
+        column: token
+        table:
+          schema: public
+          name: TicketAccessToken
+  - name: TicketCollections
+    using:
+      foreign_key_constraint_on:
+        column: tiket_token_id
+        table:
+          schema: public
+          name: TicketCollection
+  - name: Transactions
+    using:
+      foreign_key_constraint_on:
+        column: ticket_id
+        table:
+          schema: public
+          name: Transaction
+  - name: UserAccessTokens
+    using:
+      foreign_key_constraint_on:
+        column: token
+        table:
+          schema: public
+          name: UserAccessToken
+event_triggers:
+  - name: create_approved
+    definition:
+      enable_manual: false
+      insert:
+        columns: '*'
+    retry_conf:
+      num_retries: 0
+      interval_sec: 10
+      timeout_sec: 60
+    webhook: https://ntsv2.herokuapp.com/ticket/approved/create
+  - name: test
+    definition:
+      enable_manual: false
+      insert:
+        columns: '*'
+    retry_conf:
+      num_retries: 0
+      interval_sec: 10
+      timeout_sec: 60
+    webhook: http://host.docker.internal:3000/eventcf/test

@@ -1,0 +1,36 @@
+table:
+  schema: public
+  name: UserNonce
+object_relationships:
+  - name: UserWallet
+    using:
+      foreign_key_constraint_on: address_id
+array_relationships:
+  - name: Participants
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: Participant
+  - name: TicketCollections
+    using:
+      foreign_key_constraint_on:
+        column: owner
+        table:
+          schema: public
+          name: TicketCollection
+  - name: Transactions
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: Transaction
+  - name: UserAccessTokens
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: UserAccessToken

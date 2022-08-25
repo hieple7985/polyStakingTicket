@@ -1,0 +1,33 @@
+table:
+  schema: public
+  name: Transaction
+object_relationships:
+  - name: TicketToken
+    using:
+      foreign_key_constraint_on: ticket_id
+  - name: UserNonce
+    using:
+      foreign_key_constraint_on: user_id
+event_triggers:
+  - name: statistic
+    definition:
+      enable_manual: false
+      update:
+        columns:
+          - status
+          - type
+    retry_conf:
+      num_retries: 0
+      interval_sec: 10
+      timeout_sec: 60
+    webhook: http://host.docker.internal:3000/statistic/sold
+  - name: statistic_bought
+    definition:
+      enable_manual: false
+      insert:
+        columns: '*'
+    retry_conf:
+      num_retries: 0
+      interval_sec: 10
+      timeout_sec: 60
+    webhook: https://ntsv2.herokuapp.com/statistic/bought
